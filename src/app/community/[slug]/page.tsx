@@ -58,7 +58,7 @@ export default async function CommunityPage({ params }: PageProps) {
       <nav className="text-meta mb-8" style={{ color: 'var(--color-metadata)' }}>
         <Link href="/" className="hover:text-accent-brass transition-colors">Home</Link>
         <span className="mx-2">›</span>
-        <Link href="/new-jersey" className="hover:text-accent-brass transition-colors">Directory</Link>
+        <Link href="/directory" className="hover:text-accent-brass transition-colors">Directory</Link>
         <span className="mx-2">›</span>
         <span style={{ color: 'var(--color-foreground-muted)' }}>{facility.name}</span>
       </nav>
@@ -98,6 +98,20 @@ export default async function CommunityPage({ params }: PageProps) {
             >
               Learn about our methodology →
             </Link>
+          </section>
+
+          {/* How It Compares */}
+          <section className="mb-12">
+            <h2 className="text-section-header mb-6">How It Compares</h2>
+            <div 
+              className="p-6"
+              style={{ background: 'var(--color-background-secondary)', borderRadius: '2px' }}
+            >
+              <p style={{ color: 'var(--color-foreground-muted)', fontStyle: 'italic' }}>
+                If you're also considering Sunrise at West Essex, note that The Waterford offers a higher staff ratio 
+                and an exceptional dining program, but at a higher price point.
+              </p>
+            </div>
           </section>
 
           {/* Amenities */}

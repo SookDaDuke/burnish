@@ -39,7 +39,7 @@ export default function RootLayout({
                 Burnish
               </Link>
               <nav className="hidden md:flex gap-8 items-center">
-                <Link href="/new-jersey" className="text-label hover:text-accent-brass transition-colors">
+                <Link href="/directory" className="text-label hover:text-accent-brass transition-colors">
                   Directory
                 </Link>
                 <Link href="/the-edit" className="text-label hover:text-accent-brass transition-colors">

@@ -1,5 +1,9 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
 import TierBadge from "./TierBadge";
+import { useCompare } from "./CompareBar";
 
 interface CommunityCardProps {
   name: string;
@@ -22,6 +26,24 @@ export default function CommunityCard({
   editorialLine,
   slug,
 }: CommunityCardProps) {
+  const { addToCompare, removeFromCompare, isSaved, maxItems } = useCompare();
+  const [saved, setSaved] = useState(isSaved(slug));
+
+  const handleSaveClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    if (saved) {
+      removeFromCompare(slug);
+      setSaved(false);
+    } else {
+      const added = addToCompare(slug);
+      if (added) {
+        setSaved(true);
+      }
+    }
+  };
+
   return (
     <Link 
       href={`/community/${slug}`}
@@ -62,7 +84,7 @@ export default function CommunityCard({
       )}
       
       {amenities.length > 0 && (
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2 mb-4">
           {amenities.slice(0, 4).map((amenity) => (
             <span 
               key={amenity}
@@ -77,6 +99,18 @@ export default function CommunityCard({
           ))}
         </div>
       )}
+
+      {/* Save to Compare */}
+      <button
+        onClick={handleSaveClick}
+        className="text-sm mt-2 flex items-center gap-2"
+        style={{ 
+          color: saved ? 'var(--color-accent-brass)' : 'var(--color-metadata)'
+        }}
+      >
+        <span>{saved ? '✓' : '+'}</span>
+        <span>{saved ? 'Saved' : 'Save to Compare'}</span>
+      </button>
     </Link>
   );
 }

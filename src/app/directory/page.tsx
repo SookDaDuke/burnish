@@ -5,6 +5,7 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import CommunityCard from "../components/CommunityCard";
 import FilterBar from "../components/FilterBar";
+import CompareBar from "../components/CompareBar";
 
 // Dynamic import for MapView (SSR = false)
 const MapView = dynamic(() => import("../components/MapView"), { 
@@ -249,6 +250,8 @@ export default function DirectoryPage() {
           </Link>
         ))}
       </div>
+
+      <CompareBar />
     </div>
   );
 }

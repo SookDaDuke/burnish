@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getFacilityBySlug } from "@/lib/supabase/data";
 import TierBadge from "../../components/TierBadge";
+import LeadCaptureForm from "../../components/LeadCaptureForm";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -185,13 +186,8 @@ export default async function CommunityPage({ params }: PageProps) {
               </p>
             </div>
 
-            {/* CTA */}
-            <button 
-              className="btn btn-primary w-full"
-              style={{ borderRadius: '2px' }}
-            >
-              Request Information
-            </button>
+            {/* CTA - Lead Capture Form */}
+            <LeadCaptureForm communityName={facility.name} />
           </div>
         </div>
       </div>

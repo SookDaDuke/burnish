@@ -51,6 +51,9 @@ export default function RootLayout({
                 <Link href="/the-burnish-standard" className="text-label hover:text-accent-brass transition-colors">
                   The Burnish Standard
                 </Link>
+                <Link href="/get-matched" className="text-label hover:text-accent-brass transition-colors" style={{ color: 'var(--color-accent-brass)' }}>
+                  Get Matched
+                </Link>
                 <ThemeToggle />
               </nav>
             </div>

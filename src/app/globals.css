@@ -1,0 +1,221 @@
+@import "tailwindcss";
+
+/* Burnish Design System v1.0 */
+:root {
+  /* Light Mode (Day / Content-Heavy) */
+  --color-background: #F0EBE3;
+  --color-background-secondary: #E8E2D8;
+  --color-foreground: #2E2620;
+  --color-foreground-muted: #6A5A48;
+  --color-accent: #9A7B4F;
+  --color-accent-brass: #C9A96E;
+  --color-metadata: #9A8A78;
+  
+  /* Badge Colors */
+  --color-platinum: #6B8FAF;
+  --color-gold: #B8922A;
+  --color-silver: #8A8A8A;
+  --color-bronze: #A0522D;
+  --color-in-assay: #C9A96E;
+  
+  /* Typography */
+  --font-display: "Cormorant Garamond", serif;
+  --font-ui: "Jost", sans-serif;
+}
+
+/* Dark Mode (Primary Brand Impression) */
+[data-theme="dark"] {
+  --color-background: #1E1A16;
+  --color-background-secondary: #18150F;
+  --color-foreground: #E8DDD0;
+  --color-foreground-muted: #6A5A48;
+  --color-accent: #C9A96E;
+  --color-metadata: #6A5A48;
+}
+
+@theme inline {
+  --color-background: var(--color-background);
+  --color-background-secondary: var(--color-background-secondary);
+  --color-foreground: var(--color-foreground);
+  --color-foreground-muted: var(--color-foreground-muted);
+  --color-accent: var(--color-accent);
+  --color-accent-brass: var(--color-accent-brass);
+  --color-metadata: var(--color-metadata);
+  
+  --color-platinum: var(--color-platinum);
+  --color-gold: var(--color-gold);
+  --color-silver: var(--color-silver);
+  --color-bronze: var(--color-bronze);
+  --color-in-assay: var(--color-in-assay);
+  
+  --font-display: var(--font-display);
+  --font-ui: var(--font-ui);
+}
+
+/* Base Styles */
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-ui);
+  font-weight: 300;
+  line-height: 1.8;
+  transition: background-color 300ms ease, color 300ms ease;
+}
+
+/* Typography System */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+
+/* Display - Wordmark, Hero */
+.text-display {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 64px;
+  letter-spacing: 6px;
+}
+
+/* Page Headlines */
+.text-headline {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 40px;
+  letter-spacing: 2px;
+}
+
+/* Section Headers */
+.text-section-header {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 28px;
+}
+
+/* Pull Quotes */
+.text-pull-quote {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-style: italic;
+  font-size: 24px;
+}
+
+/* UI Labels */
+.text-label {
+  font-family: var(--font-ui);
+  font-weight: 200;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+/* Metadata */
+.text-meta {
+  font-family: var(--font-ui);
+  font-weight: 300;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Content Width */
+.max-content {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* Grid */
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 40px;
+}
+
+/* Card Shadow */
+.card-shadow {
+  box-shadow: 0 2px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Dividers */
+.divider {
+  height: 1px;
+  background: rgba(201, 169, 110, 0.15);
+}
+
+/* Tier Badges */
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-family: var(--font-ui);
+  font-weight: 300;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.badge-platinum {
+  background: var(--color-platinum);
+  color: white;
+}
+
+.badge-gold {
+  background: var(--color-gold);
+  color: white;
+}
+
+.badge-silver {
+  background: var(--color-silver);
+  color: white;
+}
+
+.badge-bronze {
+  background: var(--color-bronze);
+  color: white;
+}
+
+.badge-in-assay {
+  background: transparent;
+  border: 1px solid rgba(201, 169, 110, 0.6);
+  color: var(--color-accent-brass);
+}
+
+/* Buttons */
+.btn {
+  font-family: var(--font-ui);
+  font-weight: 300;
+  padding: 12px 24px;
+  border-radius: 2px;
+  transition: all 200ms ease;
+}
+
+.btn-primary {
+  background: var(--color-accent-brass);
+  color: var(--color-background);
+}
+
+.btn-primary:hover {
+  background: #B8944F;
+}
+
+/* Links */
+a {
+  color: var(--color-accent-brass);
+  transition: color 200ms ease;
+}
+
+a:hover {
+  color: var(--color-foreground);
+}
+
+/* Accessibility */
+*:focus-visible {
+  outline: 2px solid var(--color-accent-brass);
+  outline-offset: 2px;
+}
+
+/* Selection */
+::selection {
+  background: var(--color-accent-brass);
+  color: var(--color-background);
+}

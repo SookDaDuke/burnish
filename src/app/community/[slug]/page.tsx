@@ -75,7 +75,7 @@ export default async function CommunityPage({ params }: PageProps) {
         }}
       >
         <img 
-          src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1200&q=80"
+          src={facility.image_url || "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1200&q=80"}
           alt={facility.name}
           style={{ 
             width: '100%', 

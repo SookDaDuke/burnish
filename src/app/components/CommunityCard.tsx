@@ -58,25 +58,23 @@ export default function CommunityCard({
       }}
     >
       {/* Image */}
-      {imageUrl && (
-        <div 
+      <div 
+        style={{ 
+          height: '180px', 
+          overflow: 'hidden',
+          background: 'var(--color-background)'
+        }}
+      >
+        <img 
+          src={imageUrl || "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80"} 
+          alt={name}
           style={{ 
-            height: '180px', 
-            overflow: 'hidden',
-            background: 'var(--color-background)'
+            width: '100%', 
+            height: '100%', 
+            objectFit: 'cover' 
           }}
-        >
-          <img 
-            src={imageUrl} 
-            alt={name}
-            style={{ 
-              width: '100%', 
-              height: '100%', 
-              objectFit: 'cover' 
-            }}
-          />
-        </div>
-      )}
+        />
+      </div>
       
       <div style={{ padding: '24px' }}>
         <div className="flex items-start justify-between mb-4">

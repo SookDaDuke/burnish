@@ -13,6 +13,7 @@ export default function HomePage() {
       amenities: ["Private Dining", "Concierge"],
       editorialLine: "Elegant grounds and a chef who trained at the CIA.",
       slug: "the-waterford",
+      imageUrl: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80",
     },
     {
       name: "Sunrise at West Essex",
@@ -23,6 +24,7 @@ export default function HomePage() {
       amenities: ["Transportation", "Pet-Friendly"],
       editorialLine: "Dedicated memory care with robust programming.",
       slug: "sunrise-west-essex",
+      imageUrl: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
     },
     {
       name: "Brighton Gardens",
@@ -33,6 +35,7 @@ export default function HomePage() {
       amenities: ["Fitness Center", "Cultural Events"],
       editorialLine: "The dining program here is genuinely exceptional.",
       slug: "brighton-gardens-mountainside",
+      imageUrl: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=800&q=80",
     },
   ];
 

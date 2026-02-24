@@ -11,24 +11,28 @@ const collections = [
     title: "Memory Care",
     description: "Specialized communities providing secure, compassionate care for those with Alzheimer's and dementia.",
     communityCount: 12,
+    imageUrl: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
   },
   {
     slug: "exceptional-dining",
     title: "Exceptional Dining",
     description: "Communities where the culinary program is a genuine standout — chef-driven, restaurant-quality dining.",
     communityCount: 8,
+    imageUrl: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=800&q=80",
   },
   {
     slug: "best-overall",
     title: "Best Overall",
     description: "Our highest-scoring communities across all categories — the Burnish Gold and Platinum of the bunch.",
     communityCount: 15,
+    imageUrl: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80",
   },
   {
     slug: "bergen-county",
     title: "Bergen County",
     description: "Senior living in New Jersey's most populous county — our comprehensive guide.",
     communityCount: 45,
+    imageUrl: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
   },
 ];
 
@@ -51,20 +55,31 @@ export default function TheEditIndexPage() {
           <Link
             key={collection.slug}
             href={`/the-edit/${collection.slug}`}
-            className="card-shadow block p-8"
+            className="card-shadow block"
             style={{ 
               background: 'var(--color-background-secondary)',
               borderRadius: '2px',
+              overflow: 'hidden',
               transition: 'transform 200ms ease'
             }}
           >
-            <h2 className="text-section-header mb-4">{collection.title}</h2>
-            <p className="mb-4" style={{ color: 'var(--color-foreground-muted)' }}>
-              {collection.description}
-            </p>
-            <span className="text-meta" style={{ color: 'var(--color-metadata)' }}>
-              {collection.communityCount} communities →
-            </span>
+            {/* Featured Image */}
+            <div style={{ height: '200px', overflow: 'hidden' }}>
+              <img 
+                src={collection.imageUrl} 
+                alt={collection.title}
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+            </div>
+            <div style={{ padding: '32px' }}>
+              <h2 className="text-section-header mb-4">{collection.title}</h2>
+              <p className="mb-4" style={{ color: 'var(--color-foreground-muted)' }}>
+                {collection.description}
+              </p>
+              <span className="text-meta" style={{ color: 'var(--color-metadata)' }}>
+                {collection.communityCount} communities →
+              </span>
+            </div>
           </Link>
         ))}
       </div>

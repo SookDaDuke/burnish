@@ -64,6 +64,27 @@ export default async function CommunityPage({ params }: PageProps) {
         <span style={{ color: 'var(--color-foreground-muted)' }}>{facility.name}</span>
       </nav>
 
+      {/* Hero Image */}
+      <div 
+        className="mb-12"
+        style={{ 
+          height: '400px', 
+          borderRadius: '2px',
+          overflow: 'hidden',
+          background: 'var(--color-background-secondary)'
+        }}
+      >
+        <img 
+          src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1200&q=80"
+          alt={facility.name}
+          style={{ 
+            width: '100%', 
+            height: '100%', 
+            objectFit: 'cover' 
+          }}
+        />
+      </div>
+
       {/* Header */}
       <div className="mb-12">
         <div className="flex items-baseline justify-between mb-4">

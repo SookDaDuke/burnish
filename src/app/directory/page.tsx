@@ -26,6 +26,7 @@ const allCommunities = [
     amenities: ["Private Dining", "Concierge", "Fitness", "Pool"],
     editorialLine: "A chef who trained at the CIA runs this kitchen.",
     slug: "the-waterford",
+    imageUrl: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80",
   },
   {
     name: "Brighton Gardens",
@@ -39,6 +40,7 @@ const allCommunities = [
     amenities: ["Pool", "Art Studio", "Fitness"],
     editorialLine: "The dining program here is genuinely exceptional.",
     slug: "brighton-gardens-mountainside",
+    imageUrl: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=800&q=80",
   },
   {
     name: "Sunrise at West Essex",
@@ -52,6 +54,7 @@ const allCommunities = [
     amenities: ["24-Hour Care", "Transportation"],
     editorialLine: "Strong staff-to-resident ratios and thoughtful family communication.",
     slug: "sunrise-west-essex",
+    imageUrl: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
   },
   {
     name: "The Chelsea at Bridgewater",
@@ -65,6 +68,7 @@ const allCommunities = [
     amenities: ["Pool", "Fitness Center", "Pet-Friendly"],
     editorialLine: "A welcoming community with strong programming.",
     slug: "the-chelsea-bridgewater",
+    imageUrl: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
   },
   {
     name: "Arbor Terrace",
@@ -78,6 +82,7 @@ const allCommunities = [
     amenities: ["Private Dining", "Transportation", "Fitness"],
     editorialLine: "Excellent staff retention and genuine community feel.",
     slug: "arbor-terrace-morris-plains",
+    imageUrl: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
   },
   {
     name: "The Fremont",
@@ -91,6 +96,7 @@ const allCommunities = [
     amenities: ["Library", "Fitness Center", "Pet-Friendly"],
     editorialLine: "Great value for independent living with strong amenities.",
     slug: "the-fremont-edison",
+    imageUrl: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80",
   },
 ];
 

@@ -68,6 +68,7 @@ export default function CommunityCard({
         <img 
           src={imageUrl || "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80"} 
           alt={name}
+          loading="lazy"
           style={{ 
             width: '100%', 
             height: '100%', 

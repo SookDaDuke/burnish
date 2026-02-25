@@ -136,7 +136,7 @@ export default function DirectoryPage() {
               onClick={() => setViewMode("grid")}
               className="px-4 py-2"
               style={{ 
-                background: viewMode === "grid" ? 'var(--color-accent-brass)' : 'var(--color-background: '1px solid-secondary)',
+                background: viewMode === "grid" ? 'var(--color-accent-brass)' : 'var(--color-background-secondary)',
                 border var(--color-border)',
                 borderRadius: '2px',
                 color: viewMode === "grid" ? '#000' : 'var(--color-foreground)'

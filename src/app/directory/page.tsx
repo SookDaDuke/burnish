@@ -29,6 +29,8 @@ interface Facility {
   accepts_medicaid?: boolean;
   accepts_medicare?: boolean;
   amenities?: string[];
+  address_line1?: string;
+  image_url?: string;
 }
 
 export default function DirectoryPage() {
@@ -67,10 +69,10 @@ export default function DirectoryPage() {
         amenities: f.amenities || [],
         editorialLine: "View community details and photos.",
         slug: f.slug,
-        imageUrl: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80",
+        imageUrl: f.image_url || "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80",
         phone: f.phone,
         website: f.website_url,
-        address: f.address_line1,
+        address: f.address_line1 || "",
         zip: f.zip,
       }));
       

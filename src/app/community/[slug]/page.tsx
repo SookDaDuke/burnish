@@ -53,6 +53,11 @@ export default async function CommunityPage({ params }: PageProps) {
     ? facility.facility_type.map((t: string) => t.replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase())).join(', ')
     : 'Assisted Living';
 
+  // Determine tier from rating
+  const rating = facility.rating_avg || 0;
+  const tier = rating >= 4.5 ? 'gold' : rating >= 4.0 ? 'silver' : rating >= 3.0 ? 'bronze' : 'in-assay';
+  const score = Math.round(rating * 20);
+
   return (
     <div className="max-content px-4 py-12">
       {/* Breadcrumb */}
@@ -89,11 +94,32 @@ export default async function CommunityPage({ params }: PageProps) {
       <div className="mb-12">
         <div className="flex items-baseline justify-between mb-4">
           <h1 className="text-display">{facility.name}</h1>
-          <TierBadge tier="gold" score={82} />
+          <TierBadge tier={tier} score={score} />
         </div>
         <p className="text-xl" style={{ color: 'var(--color-foreground-muted)' }}>
           {facility.city}, {facility.state} {facility.zip}
         </p>
+        
+        {/* Contact Info */}
+        <div className="flex flex-wrap gap-6 mt-6">
+          {facility.phone && (
+            <a href={`tel:${facility.phone}`} className="btn-primary">
+              📞 {facility.phone}
+            </a>
+          )}
+          {facility.website_url && (
+            <a href={facility.website_url} target="_blank" rel="noopener noreferrer" className="btn-primary">
+              🌐 Visit Website
+            </a>
+          )}
+        </div>
+        
+        {/* Price */}
+        {facility.price_range_low && facility.price_range_high && (
+          <p className="text-lg mt-4" style={{ color: 'var(--color-foreground-muted)' }}>
+            💰 ${facility.price_range_low.toLocaleString()} - ${facility.price_range_high.toLocaleString()}/month
+          </p>
+        )}
       </div>
 
       <div className="grid md:grid-cols-3 gap-12">

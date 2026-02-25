@@ -15,6 +15,8 @@ interface CommunityCardProps {
   editorialLine?: string;
   slug: string;
   imageUrl?: string;
+  phone?: string;
+  website?: string;
 }
 
 export default function CommunityCard({
@@ -27,6 +29,8 @@ export default function CommunityCard({
   editorialLine,
   slug,
   imageUrl,
+  phone,
+  website,
 }: CommunityCardProps) {
   const { addToCompare, removeFromCompare, isSaved, maxItems } = useCompare();
   const [saved, setSaved] = useState(isSaved(slug));
@@ -104,6 +108,14 @@ export default function CommunityCard({
           >
             "{editorialLine}"
           </p>
+        )}
+        
+        {/* Contact Info */}
+        {(phone || website) && (
+          <div className="text-sm mb-4" style={{ color: 'var(--color-foreground-muted)' }}>
+            {phone && <p className="mb-1">📞 {phone}</p>}
+            {website && <p>🌐 <a href={website} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent-brass)' }}>Visit Website</a></p>}
+          </div>
         )}
         
         {amenities.length > 0 && (

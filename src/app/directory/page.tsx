@@ -59,6 +59,8 @@ export default function DirectoryPage() {
         editorialLine: "View community details and photos.",
         slug: f.slug,
         imageUrl: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80",
+        phone: f.phone,
+        website: f.website_url,
       }));
       
       setCommunities(formatted);

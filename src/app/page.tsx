@@ -10,7 +10,7 @@ const supabase = createClient(
 async function getFeaturedCommunities() {
   const { data } = await supabase
     .from("facilities")
-    .select("name, city, county, slug, rating_avg, review_count")
+    .select("name, city, county, slug, rating_avg, review_count, phone, website_url")
     .eq("county", "Essex")
     .limit(6);
   return data || [];
@@ -29,6 +29,8 @@ export default async function HomePage() {
     editorialLine: "View community details and photos.",
     slug: f.slug,
     imageUrl: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80",
+    phone: f.phone,
+    website: f.website_url,
   }));
 
   const topCounties = [

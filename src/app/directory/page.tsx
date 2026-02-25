@@ -24,6 +24,11 @@ interface Facility {
   rating_avg: number;
   review_count: number;
   facility_type: string[];
+  price_range_low?: number;
+  price_range_high?: number;
+  accepts_medicaid?: boolean;
+  accepts_medicare?: boolean;
+  amenities?: string[];
 }
 
 export default function DirectoryPage() {

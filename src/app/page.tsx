@@ -10,7 +10,7 @@ const supabase = createClient(
 async function getFeaturedCommunities() {
   const { data } = await supabase
     .from("facilities")
-    .select("name, city, county, slug, rating_avg, review_count, phone, website_url")
+    .select("name, city, county, slug, rating_avg, review_count, phone, website_url, address_line1, zip, price_range_low, price_range_high, accepts_medicaid, accepts_medicare")
     .eq("county", "Essex")
     .limit(6);
   return data || [];
@@ -24,13 +24,19 @@ export default async function HomePage() {
     location: `${f.city}, NJ`,
     careType: "Assisted Living",
     tier: "gold" as const,
-    score: Math.round(f.rating_avg * 20) || 75,
+    score: Math.round((f.rating_avg || 0) * 20) || 75,
+    reviewCount: f.review_count,
+    priceRange: f.price_range_low && f.price_range_high ? `$${f.price_range_low.toLocaleString()} - $${f.price_range_high.toLocaleString()}` : null,
+    acceptsMedicaid: f.accepts_medicaid,
+    acceptsMedicare: f.accepts_medicare,
     amenities: [],
     editorialLine: "View community details and photos.",
     slug: f.slug,
     imageUrl: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80",
     phone: f.phone,
     website: f.website_url,
+    address: f.address_line1,
+    zip: f.zip,
   }));
 
   const topCounties = [

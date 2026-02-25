@@ -53,14 +53,20 @@ export default function DirectoryPage() {
         careType: f.facility_type?.[0] || "assisted-living",
         tier: f.rating_avg >= 4.5 ? "gold" as const : f.rating_avg >= 4.0 ? "silver" as const : "bronze" as const,
         score: Math.round((f.rating_avg || 0) * 20) || 75,
+        reviewCount: f.review_count,
+        priceRange: f.price_range_low && f.price_range_high ? `$${f.price_range_low.toLocaleString()} - $${f.price_range_high.toLocaleString()}` : null,
+        acceptsMedicaid: f.accepts_medicaid,
+        acceptsMedicare: f.accepts_medicare,
         lat: 40.7 + Math.random() * 0.2,
         lng: -74.3 + Math.random() * 0.2,
-        amenities: [],
+        amenities: f.amenities || [],
         editorialLine: "View community details and photos.",
         slug: f.slug,
         imageUrl: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80",
         phone: f.phone,
         website: f.website_url,
+        address: f.address_line1,
+        zip: f.zip,
       }));
       
       setCommunities(formatted);

@@ -11,12 +11,18 @@ interface CommunityCardProps {
   careType: string;
   tier?: "platinum" | "gold" | "silver" | "bronze" | "in-assay" | "listed-only";
   score?: number;
+  reviewCount?: number;
+  priceRange?: string;
+  acceptsMedicaid?: boolean;
+  acceptsMedicare?: boolean;
   amenities?: string[];
   editorialLine?: string;
   slug: string;
   imageUrl?: string;
   phone?: string;
   website?: string;
+  address?: string;
+  zip?: string;
 }
 
 export default function CommunityCard({
@@ -25,12 +31,18 @@ export default function CommunityCard({
   careType,
   tier = "listed-only",
   score,
+  reviewCount,
+  priceRange,
+  acceptsMedicaid,
+  acceptsMedicare,
   amenities = [],
   editorialLine,
   slug,
   imageUrl,
   phone,
   website,
+  address,
+  zip,
 }: CommunityCardProps) {
   const { addToCompare, removeFromCompare, isSaved, maxItems } = useCompare();
   const [saved, setSaved] = useState(isSaved(slug));
@@ -111,12 +123,18 @@ export default function CommunityCard({
         )}
         
         {/* Contact Info */}
-        {(phone || website) && (
-          <div className="text-sm mb-4" style={{ color: 'var(--color-foreground-muted)' }}>
-            {phone && <p className="mb-1">📞 {phone}</p>}
-            {website && <p>🌐 <a href={website} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent-brass)' }}>Visit Website</a></p>}
-          </div>
-        )}
+        <div className="text-sm mb-4" style={{ color: 'var(--color-foreground-muted)' }}>
+          {address && <p className="mb-1">📍 {address}{zip && `, ${zip}`}</p>}
+          {phone && <p className="mb-1">📞 {phone}</p>}
+          {priceRange && <p className="mb-1">💰 {priceRange}/month</p>}
+          {website && <p className="mb-1">🌐 <a href={website} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent-brass)' }}>Visit Website</a></p>}
+          {(acceptsMedicaid || acceptsMedicare) && (
+            <p className="mt-2">
+              {acceptsMedicaid && <span className="mr-2">💳 Medicaid</span>}
+              {acceptsMedicare && <span>💳 Medicare</span>}
+            </p>
+          )}
+        </div>
         
         {amenities.length > 0 && (
           <div className="flex flex-wrap gap-2 mb-4">

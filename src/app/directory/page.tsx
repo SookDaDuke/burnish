@@ -51,7 +51,7 @@ export default function DirectoryPage() {
         location: `${f.city}, ${f.state}`,
         county: f.county?.toLowerCase() || "",
         careType: f.facility_type?.[0] || "assisted-living",
-        tier: f.rating_avg >= 4.5 ? "gold" as const : f.rating_avg >= 4.0 ? "silver" as const : "bronze" as const,
+        tier: f.rating_avg >= 4.5 ? "gold" as const : f.rating_avg >= 4.0 ? "silver" as const : f.rating_avg >= 3.0 ? "bronze" as const : "in-assay" as const,
         score: Math.round((f.rating_avg || 0) * 20) || 75,
         reviewCount: f.review_count,
         priceRange: f.price_range_low && f.price_range_high ? `$${f.price_range_low.toLocaleString()} - $${f.price_range_high.toLocaleString()}` : null,

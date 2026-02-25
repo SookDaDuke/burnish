@@ -137,7 +137,7 @@ export default function DirectoryPage() {
               className="px-4 py-2"
               style={{ 
                 background: viewMode === "grid" ? 'var(--color-accent-brass)' : 'var(--color-background-secondary)',
-                border var(--color-border)',
+                border: '1px solid var(--color-border)',
                 borderRadius: '2px',
                 color: viewMode === "grid" ? '#000' : 'var(--color-foreground)'
               }}
